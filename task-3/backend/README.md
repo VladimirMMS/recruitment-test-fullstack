@@ -1,6 +1,7 @@
 # Product API
 
 1. Clonar proyecto
+2. Instalar dependencias ``` npm install ```
 2. Clonar el archivo ``` .env.template ``` y renombrarlo a ``` .env ```
 3. Cambiar las varibles de entorno
 4. Levantar la base de datos

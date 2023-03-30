@@ -1,5 +1,5 @@
 
-export function doLogin(body) {
+export async function doLogin(body) {
     const url= process.env.REACT_APP_BACKEND_URL
     const bodyOpts = {
         method: 'POST',
@@ -8,6 +8,11 @@ export function doLogin(body) {
         },
         body: JSON.stringify(body)
     };
-    return fetch(`${url}/auth/login`, bodyOpts);
+    try {
+        const response = await (await fetch(`${url}/auth/login`, bodyOpts)).json();
+        return response;
+    } catch (error) {
+        return error
+    }
     
 }

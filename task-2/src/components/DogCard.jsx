@@ -2,7 +2,6 @@ import './../App.css';
 import { useState } from 'react';
 
 export function DogCard(props) {
-    console.log(props)
     const [isHovering, setIsHovering] = useState(false);
     const handleMouseOver = () => {
         setIsHovering(true);

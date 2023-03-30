@@ -4,10 +4,11 @@ import './styles.css'
 import { doLogin } from '../../apis/doLogin'
 import { setToken } from '../../helpers/token'
 import { userContext } from '../../context/userContext'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 
 export default function Login(props) {
   const {setIsUserLogin} = useContext(userContext)
+  const [message, setMessage] = useState('')
   return (
     <div className='login-container'>
       <div className="form-box">
@@ -15,11 +16,14 @@ export default function Login(props) {
         <Formik
           initialValues={{...props.initialValues}}
           onSubmit={async (values) => {
-            const response = await (await doLogin(values)).json()
+            const response = await await doLogin(values)
             if(response.token) {
               setToken(response.token)
               setIsUserLogin(true)
+              return;
             }
+            setMessage("Username/Password not match")
+            
           }}
           validationSchema={
             Yup.object({
@@ -36,6 +40,7 @@ export default function Login(props) {
                 <Field type="password" name='password' placeholder="Password" className='input_login' />
                 <span className='error'><ErrorMessage name='password' /></span>
                 <button type='submit' className='button_login'>Sign In</button>
+                <span className='error'>{message}</span>
               </Form>
             )
           }
