@@ -1,0 +1,53 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
+.cardContainer {
+  width: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.imgC {
+  width: 400px;
+  height: 200px;
+  border: 1px solid rgb(0, 0, 0);
+}
+
+.imgC:hover {
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+.img {
+  width: 100%;
+  height: 200px;
+
+}
+
+.dogList {
+  width: 100%;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap:10px;
+}
+
+.cardP {
+  font-size: 50px;
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 70px;
+  margin: 70px;
+}
+
+.list {
+  text-align: center;
+  font-size: 30px;
+}
