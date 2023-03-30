@@ -2,11 +2,8 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import CaruselCard from '../Cards/CaruselCard';
-import { userContext } from "../../context/userContext";
-import { useContext } from "react";
 
-export default function SliderC() {
-  const {data} = useContext(userContext)
+export default function SliderC({data}) {
     const settings = {
         dots: true,
         infinite: false,

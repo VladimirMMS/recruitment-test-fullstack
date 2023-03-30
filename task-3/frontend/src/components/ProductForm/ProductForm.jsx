@@ -1,13 +1,11 @@
 import { ErrorMessage, Field, Form, Formik } from 'formik'
-import { useRef, useContext } from 'react'
+import { useRef } from 'react'
 import * as Yup from 'yup'
 import { createProduct } from '../../apis/createProduct'
-import { userContext } from '../../context/userContext'
 import './styles.css'
 
 export default function Login(props) {
   const inputRef = useRef()
-  const {updateData} = useContext(userContext)
   return (
     <div className='product-container'>
       <div className="form-box-p">
@@ -23,7 +21,7 @@ export default function Login(props) {
             const response = await (await createProduct(formData))
             if(response.status ===200) {
               actions.resetForm()
-              updateData()
+              props.updateData()
             }
             
           }}
